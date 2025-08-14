@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বই নিবাস</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-logo">📚</div>
+        <div>আমার বই সংগ্রহ</div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="location.reload()" title="Reload" aria-label="Reload">
+          <img src="png/reload.png" alt="Reload" width="20" height="20">
+        </button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="🔎 বই খুঁজুন... (নাম/লেখক/ট্যাগ)" aria-label="বই খুঁজুন" />
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="filters">
+        <div class="pill">
+          ক্যাটাগরি:
+          <select id="categoryFilter">
+            <option value="all">সব</option>
+          </select>
+        </div>
+        <div class="pill">
+          স্ট্যাটাস:
+          <select id="statusFilter">
+            <option value="all">সব</option>
+            <option value="read">পড়া হয়েছে</option>
+            <option value="reading">পড়া হচ্ছে</option>
+            <option value="unread">পড়া বাকি</option>
+          </select>
+        </div>
+        <div class="pill">
+          সর্ট:
+          <select id="sortBy">
+            <option value="title-asc">নাম (A–Z)</option>
+            <option value="title-desc">নাম (Z–A)</option>
+            <option value="year-desc">সাল (নতুন→পুরনো)</option>
+            <option value="year-asc">সাল (পুরনো→নতুন)</option>
+            <option value="author-asc">লেখক (A–Z)</option>
+            <option value="author-desc">লেখক (Z–A)</option>
+          </select>
+        </div>
+      </div>
+      <div class="count">মোট বই: <span id="bookCount">0</span></div>
+    </div>
+  </header>
+
+  <main class="app container" aria-live="polite">
+    <section class="grid" aria-label="বইয়ের তালিকা" id="grid"></section>
+    <section class="empty" id="emptyState" aria-hidden="true">
+      <div class="ghost"></div>
+      <h2>কোনো বই পাওয়া যায়নি</h2>
+      <p>নতুন বই যোগ করতে নিচের বাটনে ক্লিক করুন।</p>
+    </section>
+  </main>
+
+  <!-- আগের button এর পরিবর্তে এখন <a> লিঙ্ক -->
+  <a href="add.html" class="fab" title="নতুন বই যোগ করুন" aria-label="নতুন বই যোগ করুন">＋</a>
+
+  <script src="script.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('Service Worker registered');
+      });
+    });
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বই নিবাস</title>
+  <link rel="stylesheet" href="add.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>📚 নতুন বই যোগ করুন</h2>
+    <form id="addBookForm">
+      <label for="bookName">বইয়ের নাম</label>
+      <input type="text" id="bookName" placeholder="বইয়ের নাম লিখুন" required />
+
+      <label for="author">লেখক</label>
+      <input type="text" id="author" placeholder="লেখকের নাম লিখুন" />
+
+      <label for="category">ক্যাটাগরি</label>
+      <select id="category">
+        <option>উপন্যাস</option>
+        <option>বিজ্ঞান</option>
+        <option>ইতিহাস</option>
+        <option>শিশুতোষ</option>
+        <option>প্রবন্ধ</option>
+      </select>
+
+      <label for="status">পড়ার স্ট্যাটাস</label>
+      <select id="status">
+        <option value="read">পড়া হয়েছে</option>
+        <option value="reading">পড়া হচ্ছে</option>
+        <option value="unread">পড়া বাকি</option>
+      </select>
+
+      <label for="tags">ট্যাগ (কমা দিয়ে আলাদা করুন)</label>
+      <input type="text" id="tags" placeholder="#বাংলা, #ক্লাসিক" />
+
+      <label for="cover">কভার ইমেজ</label>
+      <input type="file" id="cover" accept="image/*" />
+
+      <label for="notes">নোট</label>
+      <textarea id="notes" placeholder="যদি কিছু লিখতে চান..."></textarea>
+
+      <button type="submit" class="btn">বই যোগ করুন</button>
+    </form>
+    <a href="index.html" class="back-link">← ফিরে যান</a>
+  </div>
+
+  <script src="add.js"></script>
+</body>
+</html>
+
